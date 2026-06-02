@@ -49,7 +49,6 @@ llm_with_tools = llm.bind_tools(tools)
 def call_model(state: AgentState):
     """调用模型决策下一步动作"""
     response = llm_with_tools.invoke(state["messages"])
-    # 可以在这里增加重试逻辑，如果模型输出格式不对
     return {"messages": [response]}
 
 
